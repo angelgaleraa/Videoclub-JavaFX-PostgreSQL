@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.angelg.videocluborm.controller.PeliculaController">
+
+  <top>
+    <VBox spacing="5">
+      <padding>
+        <Insets top="10" left="10" right="10" bottom="10"/>
+      </padding>
+
+      <HBox spacing="10">
+        <Label text="Título:"/>
+        <TextField fx:id="txtTitulo" prefWidth="200"/>
+
+        <Label text="Director:"/>
+        <TextField fx:id="txtDirector" prefWidth="200"/>
+      </HBox>
+
+      <HBox spacing="10">
+        <Label text="Año:"/>
+        <TextField fx:id="txtAnio" prefWidth="80"/>
+
+        <Label text="Stock:"/>
+        <TextField fx:id="txtStock" prefWidth="80"/>
+
+        <Label text="Buscar director:"/>
+        <TextField fx:id="txtBuscarDirector" prefWidth="150"/>
+        <Button text="Buscar" onAction="#onBuscarDirector"/>
+      </HBox>
+
+    </VBox>
+  </top>
+
+  <center>
+    <TableView fx:id="tabla">
+      <columns>
+        <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+        <TableColumn fx:id="colTitulo" text="Título" prefWidth="180"/>
+        <TableColumn fx:id="colDirector" text="Director" prefWidth="180"/>
+        <TableColumn fx:id="colAnio" text="Año" prefWidth="80"/>
+        <TableColumn fx:id="colStock" text="Stock" prefWidth="80"/>
+      </columns>
+    </TableView>
+  </center>
+
+  <bottom>
+    <VBox spacing="5">
+      <padding>
+        <Insets top="10" left="10" right="10" bottom="10"/>
+      </padding>
+
+      <HBox spacing="10">
+        <Button text="Añadir" onAction="#onNueva"/>
+        <Button text="Guardar" onAction="#onGuardar"/>
+        <Button text="Eliminar" onAction="#onEliminar"/>
+        <Button text="Recargar" onAction="#onRecargar"/>
+      </HBox>
+
+      <Label fx:id="lblEstado" text="Listo"/>
+
+    </VBox>
+  </bottom>
+
+</BorderPane>
+
+
+
