@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Archivo de configuración de JPA/Hibernate que define la unidad de persistencia -->
+
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence
+             https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
+             version="3.0">
+
+    <!-- Definición de una unidad de persistencia llamada "videoclubPU".
+         Este nombre es el que usa JpaUtil para crear el EntityManagerFactory -->
+    <persistence-unit name="videoclubPU">
+
+        <!-- Registro de la entidad gestionada por JPA/Hibernate.
+             Sin esto Hibernate no sabe qué clases mapear a la base de datos -->
+        <class>com.angelg.videoclub.model.entity.Pelicula</class>
+
+        <properties>
+
+            <!-- Configuración de conexión JDBC a PostgreSQL -->
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/2DAM"/>
+            <property name="jakarta.persistence.jdbc.user" value="2DAM"/>
+            <property name="jakarta.persistence.jdbc.password" value="secret123"/>
+            <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+
+            <!-- Dialecto de Hibernate para PostgreSQL.
+                 Indica cómo generar SQL específico para este motor -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+
+            <!-- Muestra las sentencias SQL por consola (útil para depuración) -->
+            <property name="hibernate.show_sql" value="true"/>
+
+            <!-- Formatea las sentencias SQL para que se vean ordenadas -->
+            <property name="hibernate.format_sql" value="true"/>
+
+            <!-- hbm2ddl.auto define cómo gestiona Hibernate las tablas.
+                 "none" = no crea, no borra, no actualiza nada. Solo usa las existentes. -->
+            <property name="hibernate.hbm2ddl.auto" value="none"/>
+
+        </properties>
+
+    </persistence-unit>
+
+</persistence>
+
